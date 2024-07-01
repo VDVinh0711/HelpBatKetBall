@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd839dc88a185b14a9553caa71b6d96d, type: 3}
   m_Name: Shiedl
   m_EditorClassIdentifier: 
+  _baseValue: 100
+  _baseCostUpGrade: 10
   itemType: 2
-  value: 10
-  duration: 3
+  duration: 11
   sprite: {fileID: -3871338155212342081, guid: a653c3c690c4c94449af37878f2e8ffe, type: 3}
+  level: 10
+  des: 

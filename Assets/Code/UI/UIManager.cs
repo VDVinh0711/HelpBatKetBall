@@ -14,6 +14,7 @@ namespace  Lagger.Code.UI
         [SerializeField] private Ui_MainMenu _uiMainMenu;
         [SerializeField] private UI_Setting _uiSetting;
         [SerializeField] private UI_ChoseLevel _uicHoseLevel;
+        [SerializeField] private UI_PanelUpGrade _uiUpGrade;
         [SerializeField] private Navigation _navigation;
         private AbsUIController _currentUI;
         private void Awake()
@@ -32,12 +33,14 @@ namespace  Lagger.Code.UI
         }
         public void OpenUIUpGrade()
         {
-            HelpOpenUI(_uiMainMenu.gameObject.GetComponent<AbsUIController>());
+            HelpOpenUI(_uiUpGrade.gameObject.GetComponent<AbsUIController>());
         }
         public void ChoseMap()
         {
             HelpOpenUI(_uicHoseLevel.gameObject.GetComponent<AbsUIController>());
         }
+        
+        
         public void CloseCurrentUI()
         {
             if (_currentUI == null) return;

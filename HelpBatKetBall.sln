@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{c791a341-b949-2495-e525-f6175de9752a}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{f37fa2b3-44f2-4e53-5bdf-ef66680b905e}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleMobileAds.Editor", "GoogleMobileAds.Editor.csproj", "{a50b8a47-f158-7c40-9faa-6ac35277b18d}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirenix.OdinInspector.Modules.UnityMathematics", "Sirenix.OdinInspector.Modules.UnityMathematics.csproj", "{587a5fdd-03d7-5d3c-55ed-50bcea898d08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{58de9da7-8482-2885-54aa-49d0e8510469}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{8fa66694-5ac2-98f2-52b0-c6c27d46e7ca}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{c791a341-b949-2495-e525-f6175de9752a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{c791a341-b949-2495-e525-f6175de9752a}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{f37fa2b3-44f2-4e53-5bdf-ef66680b905e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{f37fa2b3-44f2-4e53-5bdf-ef66680b905e}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{a50b8a47-f158-7c40-9faa-6ac35277b18d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{a50b8a47-f158-7c40-9faa-6ac35277b18d}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{587a5fdd-03d7-5d3c-55ed-50bcea898d08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{587a5fdd-03d7-5d3c-55ed-50bcea898d08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58de9da7-8482-2885-54aa-49d0e8510469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58de9da7-8482-2885-54aa-49d0e8510469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8fa66694-5ac2-98f2-52b0-c6c27d46e7ca}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8fa66694-5ac2-98f2-52b0-c6c27d46e7ca}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

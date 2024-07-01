@@ -1,28 +1,37 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Lagger.Code.User;
 using UnityEngine;
 namespace Lagger.Code.ItemHelper
 {
     public class UpGradeItemBuff : MonoBehaviour
     {
        [SerializeField]  private List<ItemUpgrade> _listItemUpGrade = new();
-        public void UpGrade(ItemType type, int price, out int reprice)
+       [SerializeField] private UserWallet _userWallet;
+
+       public List<ItemUpgrade> ListItemUpGrade => _listItemUpGrade;
+       private void OnEnable()
+       {
+           EventManger<ItemType>.Registerevent("UpGradeItem",UpGradeItem);
+       }
+       
+       public void UpGradeItem(ItemType type)
         {
-            reprice = 0;
             var itemupgrade = _listItemUpGrade.FirstOrDefault(x => x.type == type);
             if(itemupgrade == null) return;
-            if (itemupgrade.CanUpGrade(price, out reprice))
+            if (itemupgrade.CanUpGrade(_userWallet.CurrentBalance))
             {
                 itemupgrade.UpGrade();
+                _userWallet.ReduceMoney(itemupgrade.itemConfig.costToUpGrade);
             }
             
         }
 
-        public void Test()
-        {
-            UpGrade(ItemType.Shield , 10,out int pricereturn);
-            print(pricereturn);
-        }
+       private void OnDisable()
+       {
+           EventManger<ItemType>.Removeevent("UpGradeItem",UpGradeItem);
+       }
     }
 
 
@@ -30,26 +39,19 @@ namespace Lagger.Code.ItemHelper
     [System.Serializable]
     public class ItemUpgrade
     {
-        private const int baseCoseUpGreade = 12;
-        private const int maxlevel = 10;
-        [SerializeField] private int _currentLevel = 1;
-        public ItemConfig _itemConfig;
-        public ItemType type => _itemConfig.itemType;
+        public ItemConfig itemConfig;
+        public ItemType type => itemConfig.itemType;
+        public Action<ItemConfig> ActionUpGrade;
         public void UpGrade()
         {
-            _currentLevel++;
-            int baseValue = _itemConfig.value;
-            int baseDuration = _itemConfig.duration;
-            _itemConfig.value = baseValue * _currentLevel;
-            _itemConfig.duration = baseDuration * _currentLevel;
+            itemConfig.UpGrade();
+            ActionUpGrade?.Invoke(itemConfig);
         }
 
-        public bool CanUpGrade(int price , out int pricepre)
+        public bool CanUpGrade(int price )
         {
-            pricepre = price;
             bool result = false;
-            result = price >= baseCoseUpGreade * _currentLevel;
-            if (result) pricepre = price - (baseCoseUpGreade * _currentLevel);
+            result = price >= itemConfig.costToUpGrade ;
             return result;
         }
 

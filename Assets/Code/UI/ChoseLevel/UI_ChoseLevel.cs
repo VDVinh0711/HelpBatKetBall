@@ -40,15 +40,6 @@ namespace Lagger.Code.UI.UICHoseLevel
             }
         }
 
-        public void Open()
-        {
-            gameObject.SetActive(true);
-        }
-
-        public void Close()
-        {
-            gameObject.SetActive(false);
-        }
     }
 
 }
