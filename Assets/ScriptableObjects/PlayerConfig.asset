@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d1830d784fdb34ea13cd855029cde8, type: 3}
+  m_Name: PlayerConfig
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _flyAngleRight: 70
+  _flyAngleLeft: 110
+  _flyForceOnGround: 2000
+  _flyForceInAir: 700
+  _flyTouchDuration: 0.3
+  _flyCooldown: 0.2
+  _gravityScale: 1.5
+  _flyForceMultiplierUnder20Percent: 1
+  _flyForceMultiplierUnder40Percent: 1.2
+  _flyForceMultiplierUnder60Percent: 1.4
+  _flyForceMultiplierUnder80Percent: 1.6
+  _flyForceMultiplierUnder100Percent: 1.8
+  _strafeSpeed: 125
