@@ -12,6 +12,13 @@ namespace Lagger.Code.Level
         public int stars = 3;
         public bool isLock = true;
         public Vector2 posPlayer;
+
+
+
+        public void LoadDataLevelConfig(int stars)
+        {
+            this.stars = stars;
+        }
     }
 
 }

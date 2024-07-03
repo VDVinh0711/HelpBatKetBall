@@ -1,5 +1,6 @@
 
 using Lagger.Code.Manager;
+using Lagger.Code.Untils;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,8 +18,8 @@ namespace Lagger.Code.UIInGame
         
         private void Awake()
         {
-            EventManager.RegisterEvent("ActiveUIInGame",ActiveUIInGame);
-            EventManager.RegisterEvent("DeActiveUIInGame",DeActiveUiInGame);
+            EventManager.RegisterEvent(SafeNameEvent.ActiveUIInGame,ActiveUIInGame);
+            EventManager.RegisterEvent(SafeNameEvent.DeActiveUIInGame,DeActiveUiInGame);
             _btnPause.onClick.AddListener(ActionPauseclick);
         }
         private void Start()
@@ -38,17 +39,15 @@ namespace Lagger.Code.UIInGame
         {
             _panel.gameObject.SetActive(false);
         }
-
-
         private void ActionPauseclick()
         {
-            GameManager.Instance.IsPause = true;
+            GameManager.Instance.Pause(); 
             _uiPauseGame.ActiveUIPause();
         }
         private void OnDisable()
         {
-            EventManager.RemoveListener("ActiveUIInGame",ActiveUIInGame);
-            EventManager.RemoveListener("DeActiveUIInGame",DeActiveUiInGame);
+            EventManager.RemoveListener(SafeNameEvent.ActiveUIInGame,ActiveUIInGame);
+            EventManager.RemoveListener(SafeNameEvent.DeActiveUIInGame,DeActiveUiInGame);
         }
     }
  

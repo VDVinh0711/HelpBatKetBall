@@ -2,6 +2,7 @@
 using GoogleMobileAds.Api;
 using Lagger.Code.Level;
 using Lagger.Code.Manager;
+using Lagger.Code.Untils;
 using Lagger.Code.User;
 using UnityEngine;
 
@@ -27,6 +28,7 @@ namespace ADS
             MobileAds.Initialize((InitializationStatus initStatus) =>
             {
                 LoadRewardedAd();
+               
             });
         }
 
@@ -61,6 +63,7 @@ namespace ADS
             {
                 _rewardedAd.Show((Reward reward) =>
                 {
+                    print("Run Show");
                     HandelResultReward(rewardType);
                 });
             }
@@ -74,6 +77,8 @@ namespace ADS
         
         
         
+        
+        // Register Event For Ads
         private void RegisterEventHandlers(RewardedAd ad)
         {
             if (ad == null)
@@ -83,6 +88,7 @@ namespace ADS
             {
                 print("Ad Close");
             };
+         
         }
 
         private void HandelResultReward(AdsRewardType type)
@@ -90,16 +96,16 @@ namespace ADS
             switch (type)
             {
                 case AdsRewardType.ReVice:
-                    EventManager.RaisEvent("CloseUiDead");
+                    EventManager.RaisEvent(SafeNameEvent.CloseUiDead);
                     GameManager.Instance.RePlay();
                     break;
                 case AdsRewardType.AddMoney:
-                    EventManger<int>.RaiseEvent("AddMoney",10);
+                    EventManger<int>.RaiseEvent(SafeNameEvent.AddMoney,10);
                     break;
                 case AdsRewardType.DoubleReWard:
-                    int rewardlevel = LevelManager.Instance.GetRewardLevel() * 2;
-                    EventManger<int>.RaiseEvent("AddMoney",rewardlevel);
-                    EventManger<int>.RaiseEvent("SetUiCoinReWard",rewardlevel);
+                    int rewardlevel = LevelManager.Instance.GetRewardLevel() ;
+                    EventManger<int>.RaiseEvent(SafeNameEvent.AddMoney,rewardlevel);
+                    EventManger<int>.RaiseEvent(SafeNameEvent.SetUiCoinReWard,rewardlevel * 2);
                     break;
             }
         }

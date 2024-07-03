@@ -1,9 +1,7 @@
 using Lagger.Code.UI.UICHoseLevel;
 using Lagger.Code.UI.UIMainMenu;
 using Lagger.Code.UI.UISetting;
-
-
-
+using Lagger.Code.Untils;
 using UnityEngine;
 
 
@@ -20,8 +18,8 @@ namespace  Lagger.Code.UI
         private void Awake()
         {
             OpenUIMainMenu();
-            EventManager.RegisterEvent("CloseCurrentUI",CloseCurrentUI);
-            EventManager.RegisterEvent("OpenUIMainMenu",OpenUIMainMenu);
+            EventManager.RegisterEvent(SafeNameEvent.CloseCurUIPanelMainMenu,CloseCurrentUI);
+            EventManager.RegisterEvent(SafeNameEvent.OpenUIMainMenu,OpenUIMainMenu);
         }
         public void OpenUIMainMenu()
         {
@@ -58,8 +56,8 @@ namespace  Lagger.Code.UI
 
         private void OnDisable()
         {
-            EventManager.RemoveListener("CloseCurrentUI",CloseCurrentUI);
-            EventManager.RemoveListener("OpenUIMainMenu",OpenUIMainMenu);
+            EventManager.RemoveListener(SafeNameEvent.CloseCurUIPanelMainMenu,CloseCurrentUI);
+            EventManager.RemoveListener(SafeNameEvent.OpenUIMainMenu,OpenUIMainMenu);
         }
     }
 

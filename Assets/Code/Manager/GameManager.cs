@@ -3,6 +3,7 @@ using Code.Helper;
 using Lagger.Code.Level;
 using Lagger.Code.Player;
 using Lagger.Code.TimeGame;
+using Lagger.Code.Untils;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,36 +21,37 @@ namespace Lagger.Code.Manager
         [SerializeField] private LevelManager _levelManager;
         [SerializeField] private TimeInGame _timeInGame;
         [SerializeField] private PlayerManager _playerManager;
-        
-        public bool IsPause
-        {
-            get => _isPause;
-            set
-            {
-                _isPause = value;
-            }
-        }
+
+        public bool IsPause => _isPause;
+       
         public bool IsWin => _isWin;
         public bool IsLose => _isLose;
         public void Win()
         {
             _isWin = true;
-            EventManger<int>.RaiseEvent("AddMoney",_levelManager.GetRewardLevel());
             int star = Helper.CaculateStar(_timeInGame.timelimit, _timeInGame.playtime);
-            _levelManager.SaveDataLevel(star);
-            EventManager.RaisEvent("OpenUIAfterGame");
+            _levelManager.InsertDataLevel(star);
+            _levelManager.UnLockNextLevel();
+            EventManager.RaisEvent(SafeNameEvent.OpenUiAfterGame);
+            EventManger<int>.RaiseEvent(SafeNameEvent.AddMoney,_levelManager.GetRewardLevel());
             OnWin?.Invoke();
         }
         public void Pause()
         {
+            //Implement More Logic for PauseGame
             _isPause = true;
-           EventManager.RaisEvent("ResposPlayer");
+        }
+
+        public void ResumGame()
+        {
+            //Implement More Logic for ResumeGame
+            _isPause = false;
         }
         public void Lose()
         {
             _isLose = true;
             OnLose?.Invoke();
-            EventManager.RaisEvent("OpenUIDead");
+            EventManager.RaisEvent(SafeNameEvent.OpenUIDead);
         }
 
         public void PlayGame()
@@ -59,9 +61,9 @@ namespace Lagger.Code.Manager
             _playerManager.ActivePlayer();
             _timeInGame.InitTime(_levelManager.GetTimeCurLevel());
             _playerManager.SetPosPlayer(_levelManager.GetPosSpawnPlayer());
-            EventManager.RaisEvent("CloseCurrentUI");
-            EventManager.RaisEvent("ActiveUIInGame");
-            EventManager.RaisEvent("ResetPlayerHeal");
+            EventManager.RaisEvent(SafeNameEvent.CloseCurUIPanelMainMenu);
+            EventManager.RaisEvent(SafeNameEvent.ActiveUIInGame);
+            EventManager.RaisEvent(SafeNameEvent.ResetPlayerHeal);
            
         }
         
@@ -69,22 +71,22 @@ namespace Lagger.Code.Manager
         {
             Clear();
             _levelManager.NextLevel();
-            EventManager.RaisEvent("CloseUIAfterGame");
+            EventManager.RaisEvent(SafeNameEvent.CloseUIAfterGame);
             PlayGame();
             
         }
         public void RePlay()
         {
             Clear();
-            EventManager.RaisEvent("HealRePlay");
-            EventManager.RaisEvent("ResposPlayer");
+            EventManager.RaisEvent(SafeNameEvent.HealRePlay);
+            EventManager.RaisEvent(SafeNameEvent.RePosPlayer);
             _timeInGame.AddTimeRePlay();
         }
 
         public void Reload()
         {
             Clear();
-            EventManager.RaisEvent("CloseUIAfterGame");
+            EventManager.RaisEvent(SafeNameEvent.CloseUIAfterGame);
             PlayGame();
         }
 

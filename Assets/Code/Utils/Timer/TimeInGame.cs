@@ -53,6 +53,8 @@ namespace  Lagger.Code.TimeGame
         public void AddTimeRePlay()
         {
             _playTime += 30;
+            OnActionChangeTime();
+            timecounter = StartCoroutine(TimeCounter());
         }
     }
 

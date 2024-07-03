@@ -1,6 +1,7 @@
 
 using System;
 using Lagger.Code.Manager;
+using Lagger.Code.Untils;
 using UnityEngine;
 namespace  Lagger.Code.Player
 {
@@ -13,8 +14,8 @@ namespace  Lagger.Code.Player
 
         private void Awake()
         {
-            EventManager.RegisterEvent("ResetPlayerHeal",Reset);
-            EventManager.RegisterEvent("HealRePlay",HealthRePlay);
+            EventManager.RegisterEvent(SafeNameEvent.ResetPlayerHeal,Reset);
+            EventManager.RegisterEvent(SafeNameEvent.HealRePlay,HealthRePlay);
         }
 
         private void Start()

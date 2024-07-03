@@ -11,8 +11,7 @@ namespace  Lagger.Code.Obstacles
     {
         protected Rigidbody2D rg;
         protected Collider coli;
-        [SerializeField] protected ObstaclesSetting obstaclesConfig;
-        public int DamageGive => obstaclesConfig == null ? 0 :  obstaclesConfig.Damage;
+        public ObstaclesSetting obstaclesConfig;
         
         private void Awake()
         {

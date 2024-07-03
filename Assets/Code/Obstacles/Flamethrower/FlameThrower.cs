@@ -1,8 +1,5 @@
-
-using System;
 using System.Collections;
 using Lagger.Code.Player;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -12,7 +9,7 @@ namespace  Lagger.Code.Obstacles
     {
         [SerializeField] private ObstaclesSetting _obstaclesSetting;
         private ParticleSystem _particleSystem;
-        private float _timeDuration;
+        private float _timeDuration = 2;
         private bool _isActive = false;
         private bool _isRun = true;
         private bool _isreadySendDamage = true;
@@ -49,7 +46,7 @@ namespace  Lagger.Code.Obstacles
             if(!_isreadySendDamage) return;
             _isreadySendDamage = false;
             StartCoroutine(DelaySendDamage());
-            other.gameObject.GetComponent<PlayerHealth>()?.ReduceHelthPlayer(_obstaclesSetting.Damage);
+            other.gameObject.GetComponent<PlayerRecive>()?.ReciveDamage(_obstaclesSetting);
         }
         IEnumerator DelaySendDamage()
         {

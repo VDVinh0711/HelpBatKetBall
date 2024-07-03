@@ -1,6 +1,7 @@
 using ADS;
 using Lagger.Code.Level;
 using Lagger.Code.Manager;
+using Lagger.Code.Untils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,9 +30,9 @@ namespace Lagger.Code.UIInGame
 
         private void OnEnable()
         {
-            EventManager.RegisterEvent("OpenUIAfterGame",ActiveUI);
-            EventManager.RegisterEvent("CloseUIAfterGame",DeActive);
-            EventManger<int>.Registerevent("SetUiCoinReWard",SetUiReWard);
+            EventManager.RegisterEvent(SafeNameEvent.OpenUiAfterGame,ActiveUI);
+            EventManager.RegisterEvent(SafeNameEvent.CloseUIAfterGame,DeActive);
+            EventManger<int>.Registerevent(SafeNameEvent.SetUiCoinReWard,SetUiReWard);
         }
         
         private void RegisterEventButton()
@@ -89,16 +90,16 @@ namespace Lagger.Code.UIInGame
 
         private void OnDisable()
         {
-            EventManager.RemoveListener("OpenUIAfterGame",ActiveUI);
-            EventManager.RemoveListener("CloseUIAfterGame",DeActive);
-            EventManger<int>.Removeevent("SetUiCoinReWard",SetUiReWard);
+            EventManager.RemoveListener(SafeNameEvent.OpenUiAfterGame,ActiveUI);
+            EventManager.RemoveListener(SafeNameEvent.CloseUIAfterGame,DeActive);
+            EventManger<int>.Removeevent(SafeNameEvent.SetUiCoinReWard,SetUiReWard);
         }
         private void ActionButtonBackMenu()
         {
             DeActive();
-            EventManager.RaisEvent("OpenUIMainMenu");
-            EventManager.RaisEvent("DeActiveUIInGame");
-            EventManager.RaisEvent("DeActivePlayer");
+            EventManager.RaisEvent(SafeNameEvent.OpenUIMainMenu);
+            EventManager.RaisEvent(SafeNameEvent.DeActiveUIInGame);
+            EventManager.RaisEvent(SafeNameEvent.DeActivePlayer);
         }
 
         private void ActionButtonAds()

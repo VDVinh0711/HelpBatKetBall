@@ -1,5 +1,6 @@
 
 using ADS;
+using Lagger.Code.Untils;
 using UnityEngine;
 using UnityEngine.UI;
 namespace Lagger.Code.UIInGame
@@ -14,14 +15,14 @@ namespace Lagger.Code.UIInGame
         }
         private void OnEnable()
         {
-            EventManager.RegisterEvent("OpenUIDead",OpenUIDead);
-            EventManager.RegisterEvent("CloseUiDead",CloseUiDead);
+            EventManager.RegisterEvent(SafeNameEvent.OpenUIDead,OpenUIDead);
+            EventManager.RegisterEvent(SafeNameEvent.CloseUiDead,CloseUiDead);
         }
         private void OpenUIDead()
         {
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
-                EventManager.RaisEvent("OpenUIAfterGame");
+                EventManager.RaisEvent(SafeNameEvent.OpenUiAfterGame);
             }
             else
             {
@@ -32,7 +33,7 @@ namespace Lagger.Code.UIInGame
          private void  DelayTurnOffUI()
          {
              CloseUiDead();
-             EventManager.RaisEvent("OpenUIAfterGame");
+             EventManager.RaisEvent(SafeNameEvent.OpenUiAfterGame);
          }
         private void CloseUiDead()
         {
@@ -46,8 +47,8 @@ namespace Lagger.Code.UIInGame
 
         private void OnDisable()
         {
-            EventManager.RemoveListener("OpenUIDead",OpenUIDead);
-            EventManager.RemoveListener("CloseUiDead",CloseUiDead);
+            EventManager.RemoveListener(SafeNameEvent.OpenUIDead,OpenUIDead);
+            EventManager.RemoveListener(SafeNameEvent.CloseUiDead,CloseUiDead);
         }
     }
 

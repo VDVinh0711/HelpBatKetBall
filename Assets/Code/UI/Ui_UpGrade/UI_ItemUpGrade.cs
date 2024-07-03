@@ -1,6 +1,7 @@
 
 using Lagger.Code.ItemHelper;
 using Lagger.Code.UiSupport;
+using Lagger.Code.Untils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,7 +54,7 @@ namespace Lagger.Code.UI
 
         private void ActionUpGradeItem()
         {
-            EventManger<ItemType>.RaiseEvent("UpGradeItem",_itemUpgrade.type);
+            EventManger<ItemType>.RaiseEvent(SafeNameEvent.UpGradeItem,_itemUpgrade.type);
         }
 
         private void ActionShowInfoClick()

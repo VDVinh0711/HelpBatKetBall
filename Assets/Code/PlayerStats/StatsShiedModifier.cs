@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 
@@ -14,7 +13,6 @@ using UnityEngine;
     public override void Update(float deltatime)
     {
       base.Update(deltatime);
-      Debug.Log("Shied");
     }
         
   }

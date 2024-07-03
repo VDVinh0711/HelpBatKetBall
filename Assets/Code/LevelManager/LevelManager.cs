@@ -1,12 +1,16 @@
 
 using System;
 using System.Collections.Generic;
+using Lagger.Code.Data;
+using Lagger.Code.Model;
 using Lagger.Code.Player;
+using Newtonsoft.Json;
+using NUnit.Framework;
 using UnityEngine;
 
 namespace Lagger.Code.Level
 {
-    public class LevelManager : Singleton<LevelManager>
+    public class LevelManager : Singleton<LevelManager>,ISaveData
     {
         private const int maxLevel = 3;
         [SerializeField] private List<LevelConfig> _listLevels = new();
@@ -41,14 +45,15 @@ namespace Lagger.Code.Level
         public void NextLevel()
         {
             _currentLevel++;
+        }
+        public void UnLockNextLevel()
+        {
             _listLevels[_currentLevel].isLock = false;
         }
-
         public void LoadLevelIndex(int index)
         {
             _currentLevel = index;
         }
-        
         public Vector2 GetPosSpawnPlayer()
         {
             return _listLevels[_currentLevel].posPlayer;
@@ -61,8 +66,7 @@ namespace Lagger.Code.Level
         {
               return _listLevels[_currentLevel].mapReward;
         }
-
-        public void SaveDataLevel(int star)
+        public void InsertDataLevel(int star)
         {
             if(_listLevels[_currentLevel].stars <= star) return;
             _listLevels[_currentLevel].stars = star;
@@ -72,7 +76,35 @@ namespace Lagger.Code.Level
         {
             return _listLevels[_currentLevel];
         }
+
         
+        public string Save()
+        {
+            List<ModelLevel> datalevel = new();
+            foreach (var level in _listLevels)
+            {
+                if(level.isLock) break;
+                ModelLevel dataAdd = new ModelLevel(level.idLevel, level.stars);
+                datalevel.Add(dataAdd);
+            }
+            return JsonConvert.SerializeObject(datalevel);
+        }
+
+        public void Load(string obj)
+        {
+            print("Data Level");
+            var dataLoads = JsonConvert.DeserializeObject<List<ModelLevel>>(obj);
+            foreach (var data in dataLoads)
+            {
+                foreach (var level in _listLevels)
+                {
+                    if (data.idLevel == level.idLevel)
+                    {
+                        level.LoadDataLevelConfig(data.starOfLevel);
+                    }
+                }
+            }
+        }
     }
 
 }

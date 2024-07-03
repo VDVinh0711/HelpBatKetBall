@@ -1,3 +1,4 @@
+
 using System.Collections;
 using Lagger.Code.ItemHelper;
 using Lagger.Code.Player;
@@ -18,34 +19,34 @@ namespace Lagger.Code.Obstacles
                 case "Obstacles":
                     if(!_canReciveDMG) return;
                     var obstacles = other.gameObject.GetComponent<BaseObstacles>();
-                    ReciveDamage(obstacles);
+                    ReciveDamage(obstacles.obstaclesConfig);
                 break;
+                case "Platform":
+                    _playerManager.SetLastPlatFormColi(other.gameObject.transform);
+                    break;
+            }
+        }
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            switch (other.gameObject.tag)
+            {
                 case "ItemHelp" :
                     if (!other.gameObject.CompareTag("ItemHelp")) return;
                     var itemhelp = other.gameObject.GetComponent<ItemBuffInGame>();
                     if(itemhelp == null) return;
                     _playerStats.AddStat(itemhelp.type,itemhelp.duration,itemhelp.value,itemhelp.Sprite);
                     break;
-                case "Platform":
-                    _playerManager.SetLastPlatFormColi(other.gameObject.transform);
-                    break;
             }
-           
         }
-
-
-
-
-        public void ReciveDamage(BaseObstacles obstacles)
+        public void ReciveDamage(ObstaclesSetting obstacles)
         {
             if(obstacles == null) return;
-            if( _playerStats.Stats.Shield > obstacles.DamageGive) return;
+            if( _playerStats.Stats.Shield > obstacles.Damage) return;
             _playerStats.Stats.Shield = 0;  
-            _playerHealth.ReduceHelthPlayer(obstacles.DamageGive);
+            _playerHealth.ReduceHelthPlayer(obstacles.Damage);
             _modelPlayer.ModelTakeDamage();
             StartCoroutine(CountdowntDamageRecive());
         }
-
         IEnumerator CountdowntDamageRecive()
         {
             _canReciveDMG = false;

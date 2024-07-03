@@ -1,4 +1,5 @@
 using Lagger.Code.Level;
+using Lagger.Code.Untils;
 using UnityEngine;
 
 namespace  Lagger.Code.Player
@@ -8,9 +9,9 @@ namespace  Lagger.Code.Player
         private Transform _lastPlatColi;
         private void OnEnable()
         {
-            EventManager.RegisterEvent("ResposPlayer",ResPlayer);
-            EventManger<Vector2>.Registerevent("SetPosPlayer",SetPosPlayer);
-            EventManager.RegisterEvent("DeActivePlayer",DeActivePlayer);
+            EventManager.RegisterEvent(SafeNameEvent.RePosPlayer,ResPlayer);
+            EventManger<Vector2>.Registerevent(SafeNameEvent.SetPosPlayer,SetPosPlayer);
+            EventManager.RegisterEvent(SafeNameEvent.DeActivePlayer,DeActivePlayer);
         }
 
         public void SetPosPlayer(Vector2 position)
@@ -40,8 +41,9 @@ namespace  Lagger.Code.Player
         
         private void OnDisable()
         {
-            EventManager.RemoveListener("ResposPlayer",ResPlayer);
-            EventManger<Vector2>.Removeevent("SetPosPlayer",SetPosPlayer);
+            EventManager.RemoveListener(SafeNameEvent.RePosPlayer,ResPlayer);
+            EventManger<Vector2>.Removeevent(SafeNameEvent.SetPosPlayer,SetPosPlayer);
+            EventManager.RemoveListener(SafeNameEvent.DeActivePlayer,DeActivePlayer);
         }
     }
 

@@ -12,6 +12,9 @@ namespace Lagger.Code.Obstacles
        [SerializeField] private Transform _bulletSpawn;
        [SerializeField] private bool _isShoot = false;
        [SerializeField] private Transform _holderSpawn;
+
+
+       [SerializeField] private bool _isDirectionRight = true;
        private void Start()
        {
            _isShoot = true;
@@ -28,8 +31,9 @@ namespace Lagger.Code.Obstacles
            {
                var go = PoolingObject.Instance.SpawnObj(_bulletSpawn);
                go.transform.SetParent(_holderSpawn);
+               go.transform.position = transform.position;
                var bulletSpawn = go.gameObject.GetComponent<Bullet>() ;
-               bulletSpawn.dir = Vector2.right;
+               bulletSpawn.dir = _isDirectionRight ?  Vector2.right : Vector2.left;
                yield return new WaitForSeconds(_speedShoot);
            }
        }

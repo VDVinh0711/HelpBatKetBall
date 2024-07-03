@@ -1,22 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
+
+using Lagger.Code.Data;
+using Lagger.Code.Model;
+using Newtonsoft.Json;
 using UnityEngine;
 
 
 namespace  Lagger.Code.User
 {
-    public class UserManager : MonoBehaviour
+    public class UserManager : MonoBehaviour,ISaveData
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        [SerializeField] private UserWallet _userWallet;
         
+        public string Save()
+        {
+             ModelUser dataAdd = new ModelUser(_userWallet.CurrentBalance, _userWallet.CurrentDimond);
+             return JsonConvert.SerializeObject(dataAdd);
         }
 
-        // Update is called once per frame
-        void Update()
+        public void Load(string obj)
         {
-        
+            print("data User");
+            var dataLoad = JsonConvert.DeserializeObject<ModelUser>(obj);
+            _userWallet.LoadDataWallet(dataLoad.money, dataLoad.dimond);
         }
     }
 

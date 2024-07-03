@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using Code.Helper;
 using Lagger.Code.TimeGame;
 using UnityEngine;
@@ -32,7 +30,11 @@ namespace Lagger.Code.UIInGame
         {
             for (int i = 0; i < 3; i++)
             {
-                if( i<= (numberStar - 1)    ) continue;
+                if (i <= (numberStar - 1))
+                {
+                    _stars[i].enabled = true;
+                    continue;
+                }
                 _stars[i].enabled = false;
             }
         }

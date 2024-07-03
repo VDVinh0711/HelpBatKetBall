@@ -1,5 +1,4 @@
 
-using System;
 using Lagger.Code.Pooling;
 using UnityEngine;
 
@@ -25,7 +24,7 @@ namespace Lagger.Code.ItemHelper
 
         private void SetUpBegin()
         {
-            _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            _spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
             SetUpUi();
         }
 
@@ -33,12 +32,13 @@ namespace Lagger.Code.ItemHelper
         {
             _spriteRenderer.sprite = _itemconfig.sprite;
         }
-
-        private void OnTriggerEnter(Collider other)
+        
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if(!other.gameObject.CompareTag("Player")) return;
             PoolingObject.Instance.DeSpawnObj(this.transform);
         }
+
     }
 
 }

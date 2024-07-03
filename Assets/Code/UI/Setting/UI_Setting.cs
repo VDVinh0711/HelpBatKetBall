@@ -34,16 +34,6 @@ namespace Lagger.Code.UI.UISetting
             _volumChangeSFX.value = _volumChangeSFX.value > 0 ? 0 : 1;
         }
 
-
-        public void Open()
-        {
-            gameObject.SetActive(true);
-        }
-
-        public void Close()
-        {
-            gameObject.SetActive(false);
-        }
     }
 
 }

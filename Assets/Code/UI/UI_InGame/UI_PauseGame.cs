@@ -1,7 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using Lagger.Code.Manager;
+using Lagger.Code.Untils;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,7 +30,7 @@ namespace  Lagger.Code.UIInGame
         private void ActionBackClick()
         {
             DeActivePause();
-            GameManager.Instance.IsPause = false;
+            GameManager.Instance.ResumGame();
         }
 
         private void ActionReloadClick()
@@ -42,8 +41,8 @@ namespace  Lagger.Code.UIInGame
 
         private void ActionBackMenuClick()
         {
-            EventManager.RaisEvent("OpenUIMainMenu");
-            EventManager.RaisEvent("DeActiveUIInGame");
+            EventManager.RaisEvent(SafeNameEvent.OpenUIMainMenu);
+            EventManager.RaisEvent(SafeNameEvent.DeActiveUIInGame);
             DeActivePause();
         }
 

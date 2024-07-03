@@ -4,6 +4,7 @@ namespace Lagger.Code.ItemHelper
     [CreateAssetMenu(fileName = "ItemHelp",menuName  = "ItemHelp/Item")]
     public class ItemConfig : ScriptableObject
     {
+        public string idItem;
         [SerializeField] private int _baseValue;
         [SerializeField] private int _baseCostUpGrade;
         public const int maxLevel = 10;
@@ -14,7 +15,7 @@ namespace Lagger.Code.ItemHelper
         public int level = 1;
         [Tooltip("The description will replace the character ! with the value and the character $ with the duration of the action")]
         public string des;
-        public int costToUpGrade => _baseCostUpGrade * (level/2);
+        public int costToUpGrade => _baseCostUpGrade * level;
         
         public string GetDes()
         {
@@ -27,6 +28,21 @@ namespace Lagger.Code.ItemHelper
             level++;
             duration++;
             if (level >= maxLevel) level = maxLevel;
+        }
+
+        public static ItemConfig GetItemById(string id)
+        {
+            var allItem = Resources.LoadAll<ItemConfig>("ItemHelp");
+            foreach (var itemConfig in allItem)
+            {
+                if (itemConfig.idItem == id)
+                {
+                    return itemConfig;
+                   
+                }
+            }
+
+            return null;
         }
     }
 }

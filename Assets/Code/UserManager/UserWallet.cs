@@ -1,12 +1,13 @@
 using System;
+using Lagger.Code.Untils;
 using UnityEngine;
 
 namespace Lagger.Code.User
 {
     public class UserWallet : MonoBehaviour
     {
-        [SerializeField] private int _currentBalance = 1000;
-        [SerializeField] private int _currentDimond = 100;
+        [SerializeField] private int _currentBalance = 0;
+        [SerializeField] private int _currentDimond = 0;
         public int CurrentBalance => _currentBalance;
         public int CurrentDimond => _currentDimond;
 
@@ -15,11 +16,13 @@ namespace Lagger.Code.User
 
         private void OnEnable()
         {
-            EventManger<int>.Registerevent("AddMoney", AddMoney);
-            EventManger<int>.Registerevent("ReduceMoney", ReduceMoney);
+            //Event For Money
+            EventManger<int>.Registerevent(SafeNameEvent.AddMoney, AddMoney);
+            EventManger<int>.Registerevent(SafeNameEvent.ReduceMoney, ReduceMoney);
             
-            EventManger<int>.Registerevent("AddDimond", AddDimond);
-            EventManger<int>.Registerevent("ReduceDimond", ReduceDimond);
+            //Event For Dimond
+            EventManger<int>.Registerevent(SafeNameEvent.AddDimond, AddDimond);
+            EventManger<int>.Registerevent(SafeNameEvent.ReduceDimond, ReduceDimond);
         }
 
 
@@ -64,11 +67,22 @@ namespace Lagger.Code.User
         
         private void OnDisable()
         {
-            EventManger<int>.Removeevent("AddMoney", AddMoney);
-            EventManger<int>.Removeevent("ReduceMoney", ReduceMoney);
+            //Event For Money
+            EventManger<int>.Removeevent(SafeNameEvent.AddMoney, AddMoney);
+            EventManger<int>.Removeevent(SafeNameEvent.ReduceMoney, ReduceMoney);
             
-            EventManger<int>.Removeevent("AddDimond", AddDimond);
-            EventManger<int>.Removeevent("ReduceDimond", ReduceDimond);
+            //Event For Dimond
+            EventManger<int>.Removeevent(SafeNameEvent.AddDimond, AddDimond);
+            EventManger<int>.Removeevent(SafeNameEvent.ReduceDimond, ReduceDimond);
+        }
+
+        public void LoadDataWallet(int money, int dimond)
+        {
+            this._currentBalance = money;
+            this._currentDimond = dimond;
+            
+            OnActionChangeMoney();
+            OnActionChangeDimond();
         }
     }
 

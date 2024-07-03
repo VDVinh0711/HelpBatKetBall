@@ -17,8 +17,6 @@ namespace Lagger.Code.UI.UICHoseLevel
         {
             SetupBegin();
         }
-
-
         private void SetupBegin()
         {
             for (int i = 0; i < _levelManager.MaxLevel; i++)

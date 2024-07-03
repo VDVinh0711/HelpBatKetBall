@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd839dc88a185b14a9553caa71b6d96d, type: 3}
   m_Name: Heal
   m_EditorClassIdentifier: 
+  idItem: heal
   _baseValue: 10
   _baseCostUpGrade: 100
   itemType: 1
-  duration: 10
+  duration: 18
   sprite: {fileID: 3334564692304086633, guid: 2c5e1edc8089f964283e30c56fd9b6b3, type: 3}
-  level: 1
+  level: 2
   des: Level # will heal the player for  ! HP per second for a duration of $ seconds.

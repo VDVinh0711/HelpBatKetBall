@@ -1,7 +1,6 @@
-using System;
+
 using Lagger.Code.Level;
 using Lagger.Code.Manager;
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,16 +25,6 @@ namespace  Lagger.Code.UI.UIMainMenu
         {
             LevelManager.Instance.LoadLastLevelUnLock();
             GameManager.Instance.PlayGame();
-            gameObject.SetActive(false);
-        }
-
-        public void Open()
-        {
-           gameObject.SetActive(true);
-        }
-
-        public void Close()
-        {
             gameObject.SetActive(false);
         }
     }

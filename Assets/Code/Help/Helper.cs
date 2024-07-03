@@ -15,7 +15,7 @@ namespace  Code.Helper
         public static int CaculateStar(int timelimit, int currenttime)
         {
             float parttime = (float) timelimit / 3;
-            int star = 3- (int)Math.Round(parttime / currenttime);
+            int star =  (int)Math.Ceiling(currenttime / parttime);
             return star;
         }
        
