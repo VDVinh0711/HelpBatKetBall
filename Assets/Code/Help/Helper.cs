@@ -18,6 +18,22 @@ namespace  Code.Helper
             int star =  (int)Math.Ceiling(currenttime / parttime);
             return star;
         }
+        
+        
+        public static string GetLastPart(string fullClassName)
+        {
+            if (string.IsNullOrEmpty(fullClassName))
+            {
+                return string.Empty;
+            }
+            int lastDotIndex = fullClassName.LastIndexOf('.');
+            if (lastDotIndex == -1)
+            {
+                return fullClassName; 
+            }
+
+            return fullClassName.Substring(lastDotIndex + 1);
+        }
        
     }
 

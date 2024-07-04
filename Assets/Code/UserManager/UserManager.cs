@@ -19,7 +19,7 @@ namespace  Lagger.Code.User
 
         public void Load(string obj)
         {
-            print("data User");
+            if(obj.Equals(string.Empty)) return;
             var dataLoad = JsonConvert.DeserializeObject<ModelUser>(obj);
             _userWallet.LoadDataWallet(dataLoad.money, dataLoad.dimond);
         }

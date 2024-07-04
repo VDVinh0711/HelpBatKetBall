@@ -44,6 +44,11 @@ namespace Lagger.Code.UIInGame
         public void ActiveUI()
         {
             SetUpUI();
+            Invoke("DelayActiveUI",1.0f);
+        }
+
+        private void DelayActiveUI()
+        {
             _panelUI.gameObject.SetActive(true);
         }
 
@@ -59,7 +64,6 @@ namespace Lagger.Code.UIInGame
                 SetUpUIPanelWin();
                 _panelWin.gameObject.SetActive(isWin);
                 _panelLose.gameObject.SetActive(!isWin);
-
             }
             else
             {
@@ -78,8 +82,7 @@ namespace Lagger.Code.UIInGame
         {
             for (int i = 0; i < 3; i++)
             {
-                if(i <= (countStar -1)) continue;
-                _stars[i].enabled = false;
+                _stars[i].enabled = i<= (countStar-1);
             }
         }
         

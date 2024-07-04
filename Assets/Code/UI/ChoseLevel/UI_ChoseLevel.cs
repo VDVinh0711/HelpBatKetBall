@@ -16,6 +16,7 @@ namespace Lagger.Code.UI.UICHoseLevel
         private void Start()
         {
             SetupBegin();
+            print("Run");
         }
         private void SetupBegin()
         {
@@ -28,16 +29,21 @@ namespace Lagger.Code.UI.UICHoseLevel
             }
             UpDateUI();
         }
-
-
+        
         private void UpDateUI()
         {
+            if(_listUILevel.Count <= 0) return;
             for (int i = 0; i < _levelManager.MaxLevel; i++)
             {
                 _listUILevel[i].SetUpUI(_levelManager.ListLevel[i]);
             }
         }
 
+        public override void Open()
+        {
+            base.Open();
+            UpDateUI();
+        }
     }
 
 }

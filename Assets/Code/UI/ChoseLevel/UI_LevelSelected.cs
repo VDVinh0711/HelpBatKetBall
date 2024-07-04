@@ -40,9 +40,8 @@ namespace Lagger.Code.UI.UICHoseLevel
         private void SetUpStar(int numberStar, bool isShow)
         {
             for (int i = 0; i < _stars.Length; i++)
-            {
-                if(i> numberStar) continue;
-                _stars[i].enabled = isShow;
+            { 
+                _stars[i].enabled = i <= (numberStar -1) && isShow;
             }
         }
 

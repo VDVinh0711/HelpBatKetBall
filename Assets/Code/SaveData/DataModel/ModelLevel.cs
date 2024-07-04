@@ -13,7 +13,7 @@ namespace  Lagger.Code.Model
         public ModelLevel(int idLevel, int starOfLevel)
         {
             this.idLevel = idLevel;
-            this.starOfLevel = idLevel;
+            this.starOfLevel = starOfLevel;
         }
     }
  

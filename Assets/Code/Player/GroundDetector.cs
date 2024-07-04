@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GroundDetector : MonoBehaviour
 {
-    [SerializeField] private float _groundDetectorDistance = 0.3f;  
+     private float _groundDetectorDistance = 0.4f;  
     [SerializeField] private LayerMask _groundLayerMask;
 
     public bool IsGrounded { get; private set; }

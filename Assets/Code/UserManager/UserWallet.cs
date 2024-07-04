@@ -60,7 +60,7 @@ namespace Lagger.Code.User
         }
         private void OnActionChangeDimond()
         {
-            ActionChangeMoney?.Invoke(_currentBalance);
+            ActionChangeDimond?.Invoke(_currentDimond);
         }
 
         #endregion

@@ -58,7 +58,7 @@ namespace Lagger.Code.ItemHelper
 
        public void Load(string obj)
        {
-           print("data UpGrade");
+            if(obj.Equals(string.Empty))  return;
            var dataLoads = JsonConvert.DeserializeObject<List<ModelUpGrade>>(obj);
            foreach (var dataLoad in dataLoads)
            {

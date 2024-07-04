@@ -68,16 +68,13 @@ namespace Lagger.Code.Level
         }
         public void InsertDataLevel(int star)
         {
-            if(_listLevels[_currentLevel].stars <= star) return;
+            if(_listLevels[_currentLevel].stars >= star) return;
             _listLevels[_currentLevel].stars = star;
         }
-
         public LevelConfig GetCurrentLevel()
         {
             return _listLevels[_currentLevel];
         }
-
-        
         public string Save()
         {
             List<ModelLevel> datalevel = new();
@@ -92,16 +89,14 @@ namespace Lagger.Code.Level
 
         public void Load(string obj)
         {
-            print("Data Level");
+            if(obj.Equals(string.Empty)) return;
             var dataLoads = JsonConvert.DeserializeObject<List<ModelLevel>>(obj);
             foreach (var data in dataLoads)
             {
                 foreach (var level in _listLevels)
                 {
-                    if (data.idLevel == level.idLevel)
-                    {
-                        level.LoadDataLevelConfig(data.starOfLevel);
-                    }
+                    if (data.idLevel != level.idLevel) continue;
+                    level.LoadDataLevelConfig(data.starOfLevel);
                 }
             }
         }
