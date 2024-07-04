@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "588800881564",
+    "firebase_url": "https://helpbatketball-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "helpbatketball",
+    "storage_bucket": "helpbatketball.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588800881564:android:476382379f814037564e59",
+        "android_client_info": {
+          "package_name": "com.Lagger.HelpBatKetBall"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFi4mUtaywyqXh3bM4IOwdNlZyH75L5b8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

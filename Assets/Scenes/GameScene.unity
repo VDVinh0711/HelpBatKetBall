@@ -2904,18 +2904,18 @@ MonoBehaviour:
   - idLevel: 0
     mapPrefabs: {fileID: 6922591053701199592, guid: 437219ee8cc615540918e23f272f6dfd, type: 3}
     mapReward: 100
-    timeRequird: 90
-    stars: 3
+    timeRequird: 180
+    stars: 0
     isLock: 0
     posPlayer: {x: 0, y: -7}
-  - idLevel: 0
+  - idLevel: 1
     mapPrefabs: {fileID: 2887547508393263621, guid: c01be9aba7f9b8240aa53ff877c243d5, type: 3}
-    mapReward: 100
-    timeRequird: 30
-    stars: 3
-    isLock: 0
+    mapReward: 200
+    timeRequird: 180
+    stars: 0
+    isLock: 1
     posPlayer: {x: 0, y: -7}
-  - idLevel: 0
+  - idLevel: 2
     mapPrefabs: {fileID: 2887547508393263621, guid: c01be9aba7f9b8240aa53ff877c243d5, type: 3}
     mapReward: 100
     timeRequird: 100
@@ -6804,7 +6804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &925736013
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6868,9 +6868,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 270613340}
-        m_TargetAssemblyTypeName: Lagger.Code.Player.PlayerHealth, Assembly-CSharp
-        m_MethodName: TestReduceHP
+      - m_Target: {fileID: 1752077656}
+        m_TargetAssemblyTypeName: Lagger.Code.Data.DataManger, Assembly-CSharp
+        m_MethodName: LoadData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

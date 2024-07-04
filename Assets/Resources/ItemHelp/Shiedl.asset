@@ -16,7 +16,8 @@ MonoBehaviour:
   _baseValue: 100
   _baseCostUpGrade: 10
   itemType: 2
-  duration: 200
+  duration: 3
   sprite: {fileID: -3871338155212342081, guid: a653c3c690c4c94449af37878f2e8ffe, type: 3}
-  level: 100
-  des: 
+  level: 1
+  des: Level #  , The shield is valuable ! Will protect the player from obstacles
+    for $ seconds

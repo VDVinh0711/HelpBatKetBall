@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleMobileAds.Editor", "G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirenix.OdinInspector.Modules.UnityMathematics", "Sirenix.OdinInspector.Modules.UnityMathematics.csproj", "{587a5fdd-03d7-5d3c-55ed-50bcea898d08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{58de9da7-8482-2885-54aa-49d0e8510469}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{8fa66694-5ac2-98f2-52b0-c6c27d46e7ca}"
 EndProject
 Global
@@ -26,8 +24,6 @@ Global
 		{a50b8a47-f158-7c40-9faa-6ac35277b18d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{587a5fdd-03d7-5d3c-55ed-50bcea898d08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{587a5fdd-03d7-5d3c-55ed-50bcea898d08}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58de9da7-8482-2885-54aa-49d0e8510469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58de9da7-8482-2885-54aa-49d0e8510469}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8fa66694-5ac2-98f2-52b0-c6c27d46e7ca}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8fa66694-5ac2-98f2-52b0-c6c27d46e7ca}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
