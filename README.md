@@ -1,5 +1,7 @@
 LINK PlayDeMO : https://laggerhatecode.itch.io/helpbatketball?secret=2vzkfFLosYOh3tdPCEM7FNYCw
 
+Link Video Demo : https://youtu.be/kY6VezRiPz8
+
 
 HelpBatKetBall là một thể loại game Puzzel 2D đơn giản , nhiệm vụ của bạn là di chuyển quả bóng bằng cách kéo thả , vượt qua các chướng ngại vật , thu thập các vật phẩm  để đảm bảo đưa được quả bóng vào rổ thì bạn sẽ dành chiến thắng , nếu như hết thời gian hoặc hết HP thì bạn sẽ thua. Khi chiến thắng bạn có thẻ nhận được phần thưởng cho mỗi màn , dùng tiền để nâng cấp cho các item hỗ trợ .
 
