@@ -107,6 +107,9 @@ namespace ADS
                     EventManger<int>.RaiseEvent(SafeNameEvent.AddMoney,rewardlevel);
                     EventManger<int>.RaiseEvent(SafeNameEvent.SetUiCoinReWard,rewardlevel * 2);
                     break;
+                case AdsRewardType.AddSpin:
+                    EventManger<int>.RaiseEvent(SafeNameEvent.AddNumberSpin,1);
+                    break;
             }
         }
     }

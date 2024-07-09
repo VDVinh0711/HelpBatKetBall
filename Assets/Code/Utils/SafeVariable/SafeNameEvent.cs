@@ -18,7 +18,6 @@ namespace  Lagger.Code.Untils
 
         #endregion
         
-
         #region Event For UserWallet
         public const string AddMoney = "AddMoney";
         public const string ReduceMoney = "ReduceMoney";
@@ -49,7 +48,11 @@ namespace  Lagger.Code.Untils
 
         #endregion
 
+        #region Event For Spin
 
+        public const string AddNumberSpin = "AddNumberSpin";
+
+        #endregion
 
 
 

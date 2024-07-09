@@ -6,7 +6,8 @@ namespace ADS
        None,
        ReVice,
        DoubleReWard,
-       AddMoney
+       AddMoney,
+       AddSpin
     }
 
 }
