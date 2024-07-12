@@ -1,4 +1,4 @@
-using System;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -11,6 +11,7 @@ namespace Code.Input
     public class InputReader : ScriptableObject, IPlayerActions
     {
         public event UnityAction<bool> TouchPress = delegate { }; 
+        public event UnityAction LeftMousePress = delegate {  };
         
         private PlayerInputActions _inputActions;
 
@@ -43,6 +44,20 @@ namespace Code.Input
         public void OnTouchPosition(InputAction.CallbackContext context)
         {
             // noop
+        }
+
+        public void OnClick(InputAction.CallbackContext context)
+        {
+            switch (context.phase)
+            {
+                case InputActionPhase.Started:
+                    LeftMousePress?.Invoke();
+                    break;
+                case InputActionPhase.Canceled:
+                    LeftMousePress?.Invoke();
+                    break;
+            }
+           
         }
     }
 }

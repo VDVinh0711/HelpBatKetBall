@@ -1,7 +1,6 @@
 
 using DG.Tweening;
 using UnityEngine;
-
 namespace Lagger.Code.Player
 {
     public class PlayerControllerV2 : MonoBehaviour
@@ -10,7 +9,7 @@ namespace Lagger.Code.Player
         [SerializeField] private ModelPlayer _model;
         [SerializeField] private Rigidbody2D _rg;
         [SerializeField] private Trajectory.Trajectory _trajectory;
-        [SerializeField] private GroundDetector _groundDetector;
+       [SerializeField] private GroundDetector _groundDetector;
         private Vector2 _direction = Vector2.zero;
         private Vector2 _forceadd = Vector2.zero;
         private Vector3 GetDirectionMove()
@@ -24,7 +23,6 @@ namespace Lagger.Code.Player
             if(!_groundDetector.IsGrounded) return;
             _trajectory.Show();
         }
-
         private void OnMouseDrag()
         {
             if(!_groundDetector.IsGrounded) return;
@@ -40,12 +38,7 @@ namespace Lagger.Code.Player
             _model.RotateModel(_direction);
 
         }
-
-
         #endregion
-
-
-      
     }
 }
 
