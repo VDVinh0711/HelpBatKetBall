@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Code.Helper;
+using Cysharp.Threading.Tasks;
 using Firebase.Database;
 
 public class FireBaseManager
@@ -25,7 +26,7 @@ public class FireBaseManager
         if (_databaseReference == null) _databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
         _databaseReference.Child(keySave).SetRawJsonValueAsync(data);
     }
-    public  async Task<string> LoadData (string key )
+    public  async UniTask<string> LoadData (string key )
     {
         if (_databaseReference == null) _databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
         var dataSever =  await _databaseReference.Child(key).GetValueAsync();
